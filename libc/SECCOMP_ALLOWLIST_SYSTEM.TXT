@@ -2,3 +2,8 @@
 # Note that the resultant policy is applied only to zygote spawned processes.
 #
 # This file is processed by a python script named genseccomp.py.
+
+bpf(int cmd, union bpf_attr *attr, unsigned int size) all
+
+# mesa
+kcmp(pid_t pid1, pid_t pid2, int type, unsigned long idx1, unsigned long idx2) all

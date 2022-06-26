@@ -112,3 +112,5 @@ setxattrat(int, const char*, unsigned, const char*, const xattr_args*, size_t) a
 getxattrat(int, const char*, unsigned, const char*, xattr_args*, size_t) all
 listxattrat(int, const char*, unsigned, char*, size_t) all
 removexattrat(int, const char*, unsigned, const char*) all
+# mesa
+kcmp(pid_t pid1, pid_t pid2, int type, unsigned long idx1, unsigned long idx2) all
