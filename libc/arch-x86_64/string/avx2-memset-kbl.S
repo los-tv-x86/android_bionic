@@ -116,7 +116,7 @@ L(16bytesormore):
 	cmpq	%rcx, %rdx
 	je	L(done)
 
-	cmp	__x86_shared_cache_size(%rip), %r8
+	cmp	__x86_shared_cache_size_memset(%rip), %r8
 
 	ja	L(non_temporal_loop)
 

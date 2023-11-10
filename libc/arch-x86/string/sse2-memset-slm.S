@@ -180,7 +180,8 @@ L(128bytesormore):
 	PUSH(%ebx)
 	SETUP_PIC_REG(bx)
 	add	$_GLOBAL_OFFSET_TABLE_, %ebx
-	mov	__x86_shared_cache_size@GOTOFF(%ebx), %ebx
+	mov	__x86_shared_cache_size_memset@GOTOFF(%ebx), %ebx
+
 	cmp	%ebx, %ecx
 	jae	L(128bytesormore_nt_start)
 

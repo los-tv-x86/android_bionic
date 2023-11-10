@@ -115,7 +115,7 @@ L(128bytesmore):
 	cmpq	%rcx, %rdx
 	je	L(return)
 
-	cmp	__x86_shared_cache_size(%rip), %r8
+	cmp	__x86_shared_cache_size_memset(%rip), %r8
 
 	ja	L(128bytesmore_nt)
 

@@ -65,6 +65,7 @@ size_t __x86_data_cache_size = 24 * 1024;
 size_t __x86_data_cache_size_half = __x86_data_cache_size / 2;
 size_t __x86_shared_cache_size = sizeof(long) == 8 ? 4096 * 1024 : 1024 * 1024;
 size_t __x86_shared_cache_size_half = __x86_shared_cache_size / 2;
+size_t __x86_shared_cache_size_memset = __x86_shared_cache_size * 2;
 // ...overwritten at runtime based on the cpu's reported cache sizes.
 static void __libc_init_x86_cache_info() {
   // Handle the case where during early boot /sys fs may not yet be ready,
@@ -77,6 +78,7 @@ static void __libc_init_x86_cache_info() {
   if (sysconf(_SC_LEVEL2_CACHE_SIZE) != 0) {
     __x86_shared_cache_size = sysconf(_SC_LEVEL2_CACHE_SIZE);
     __x86_shared_cache_size_half = __x86_shared_cache_size / 2;
+    __x86_shared_cache_size_memset = __x86_shared_cache_size * 2;
   }
 }
 #endif
